@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 class LogisticRegression():
-    def __init__(self, learning_rate = 0.01, n_iterations = 1000) -> None:
+    def __init__(self, learning_rate = 0.0001, n_iterations = 1000) -> None:
         self.learning_rate = learning_rate
         self.n_iterations = n_iterations
         self.losses = []
@@ -39,7 +39,7 @@ class LogisticRegression():
             y_hat = self.y_hat(X, self.w)
             old_w = self.w.copy()
             self.w = self.gradient_descent(X, y, self.w, y_hat)
-            if iter % 1000 == 0:
+            if iter % 10000 == 0:
                 loss = self.loss(y, y_hat)
                 print(f'loss: {loss}')
                 self.losses.append(loss)
